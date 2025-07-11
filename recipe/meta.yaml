@@ -1,5 +1,5 @@
 {% set name = "NumCpp" %}
-{% set version = "2.12.1" %}
+{% set version = "2.14.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,16 @@ package:
 
 source:
   url: https://github.com/dpilger26/{{ name }}/archive/refs/tags/Version_{{ version }}.tar.gz
-  sha256: f462ecd27126e6057b31fa38f1f72cef2c4223c9d848515412970714a5bb6d16
+  sha256: 9333115f7f8ec9394a1bc49fb6e07a9175e0efbad29c6eba1aff0dab22ba36de
 
 build:
   number: 0
-  skip: True  # [not unix]
+  skip: true  # [not unix]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - make
     - cmake >=3.14
   host:
